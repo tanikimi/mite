@@ -6,14 +6,29 @@ struct MiteView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            // タイトルバー
             HStack {
+                // 自前の閉じるボタン
+                Button {
+                    // 現在アクティブなウィンドウを閉じる
+                    NSApplication.shared.keyWindow?.close()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.system(size: 14))
+                        .foregroundStyle(.tertiary) // 画像のような控えめなグレーに
+                }
+                .buttonStyle(.plain)
+                
                 Text("新しいリスト")
                     .font(.headline)
+                    .padding(.leading, 4)
+                
                 Spacer()
             }
             .padding(.horizontal, 12)
-            .padding(.vertical, 8)
+            .padding(.top, 12)
+            .padding(.bottom, 8)
+            
+            Divider()
             
             Divider()
             
@@ -42,6 +57,7 @@ struct MiteView: View {
             .padding(12)
         }
         .frame(width: 300, height: 400)
+        .ignoresSafeArea()
     }
     
     private func addItem() {

@@ -10,9 +10,14 @@ class MiteWindowController: NSWindowController {
             defer: false
         )
         
-        window.title = "新しいリスト"
+        window.titleVisibility = .hidden
         window.titlebarAppearsTransparent = true
         window.isMovableByWindowBackground = true
+        window.level = .floating
+        window.standardWindowButton(.closeButton)?.isHidden = true
+        window.standardWindowButton(.miniaturizeButton)?.isHidden = true
+        window.standardWindowButton(.zoomButton)?.isHidden = true
+        
         window.center()
         
         self.init(window: window)
