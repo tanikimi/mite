@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct MenuBarView: View {
+    @State private var windowControllers: [MiteWindowController] = []
+    
     var body: some View {
         Button("新規リスト"){
-            // ここにウィンドウ生成処理
+            let controller = MiteWindowController()
+            controller.showWindow(nil)
+            windowControllers.append(controller)
         }
         
         Divider()
