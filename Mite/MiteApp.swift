@@ -10,8 +10,8 @@ import SwiftUI
 @main
 struct MiteApp: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        MenuBarExtra("Mite", systemImage: "checklist"){
+            MenuBarView()
         }
     }
 }
